@@ -1,0 +1,4 @@
+---
+elastic_repo_state: present
+elastic_repo_thread_version: 5.x
+elastic_repo_key: https://artifacts.elastic.co/GPG-KEY-elasticsearch

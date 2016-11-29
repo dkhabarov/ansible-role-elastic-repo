@@ -1,0 +1,19 @@
+---
+
+- name: install apt-transport-https
+  apt:
+    pkg: apt-transport-https
+    state: "{{ elastic_repo_state }}"
+  when: ansible_os_family == "Debian"
+
+- name: Add repo key
+  apt_key:
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    state: "{{ elastic_repo_state }}"
+  when: ansible_os_family == "Debian"
+
+- name: add repository
+  apt_repository:
+    repo: 'deb https://artifacts.elastic.co/packages/{{elastic_repo_thread_version}}/apt stable main'
+    state: "{{ elastic_repo_state }}"
+  when: ansible_os_family == "Debian"
